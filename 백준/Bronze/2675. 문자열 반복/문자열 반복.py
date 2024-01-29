@@ -1,11 +1,13 @@
 import sys
 
-n=int(sys.stdin.readline())
+input = sys.stdin.readline
 
-for _ in range(n):
-    t, w = sys.stdin.readline().split()
-    t= int(t)
-    w= str(w)
-    for i in range(len(w)):
-        print(t*w[i], end='')
+T = int(input())
+for _ in range(T):
+    num, alpha = input().split()
+    num = int(num)
+    alpha = str(alpha)
+
+    for i in range(len(alpha)):
+        print(num * alpha[i], end='')
     print()
