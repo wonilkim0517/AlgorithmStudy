@@ -1,6 +1,8 @@
 import sys
 from itertools import product
 
+input = sys.stdin.readline
+
 N, M = map(int, input().split())
 
 elements = [i + 1 for i in range(N)]
