@@ -2,7 +2,7 @@ import sys
 
 input = sys.stdin.readline
 
-N, M = map(int, input().split())
+N, M = list(map(int, input().split()))
 s = []
 
 def dfs(start):
