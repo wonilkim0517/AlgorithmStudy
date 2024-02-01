@@ -5,7 +5,7 @@ input = sys.stdin.readline
 
 N, M = map(int, input().split())
 elements = list(map(int, input().split()))
-
+elements.sort()
 
 permutationsList = list(set(permutations(elements, M)))
 permutationsList.sort()
