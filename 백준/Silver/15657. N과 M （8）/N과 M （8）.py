@@ -7,7 +7,6 @@ elements = list(map(int, input().split()))
 elements.sort()
 s = []
 
-
 def dfs(start):
     if len(s) == M:
         print(' '.join(map(str, s)))
