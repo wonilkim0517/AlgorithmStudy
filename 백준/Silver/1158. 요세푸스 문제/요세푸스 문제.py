@@ -1,18 +1,19 @@
-from collections import deque
 import sys
-input=sys.stdin.readline
+from collections import deque
 
-n, k = map(int,input().split())
+input = sys.stdin.readline
 
-stack=[]
-q=deque()
+N, K = map(int, input().split())
+K -= 1
 
-for i in range(1,n+1):
+stack = []
+q = deque()
+
+for i in range(1, N + 1):
     q.append(i)
 
 while q:
-    q.rotate(-(k-1))
+    q.rotate(-K)
     stack.append(q.popleft())
-    
-print(str(stack).replace('[','<').replace(']','>'))
-    
+
+print(str(stack).replace('[', '<').replace(']', '>'))
