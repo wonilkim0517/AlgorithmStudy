@@ -25,3 +25,4 @@ def check(a):
 for i in range(T):
     b=list(input())
     check(b)
+    
