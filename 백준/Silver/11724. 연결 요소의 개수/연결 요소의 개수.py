@@ -1,35 +1,31 @@
 import sys
-sys.setrecursionlimit(10000)
+from collections import defaultdict
 
 input = sys.stdin.readline
 
 N, M = map(int, input().split())
 
-graph = {}
-visited = [False for _ in range(N + 1)]
+graph = defaultdict(list)
+visited = [False] * (N + 1)
 count = 0
 
 for _ in range(M):
     u, v = map(int, input().split())
-    if u in graph:
-        graph[u].append(v)
-    else:
-        graph[u] = [v]
+    graph[u].append(v)
+    graph[v].append(u)
 
-    if v in graph:
-        graph[v].append(u)
-    else:
-        graph[v] = [u]
 
-def dfs(u):
-    visited[u] = True
-    if u in graph:
-        for v in graph[u]:
-            if visited[v] == False:
-                dfs(v)
+def dfs(start):
+    stack = [start]
+
+    while stack:
+        current = stack.pop()
+        if not visited[current]:
+            visited[current] = True
+            stack.extend(neighbour for neighbour in graph[current] if not visited[neighbour])
 
 for u in range(1, N + 1):
-    if visited[u] == False:
+    if not visited[u]:
         dfs(u)
         count += 1
 
