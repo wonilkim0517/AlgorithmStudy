@@ -18,4 +18,4 @@ for i in range(N - 1, -1, -1):
     else:
         dp[i] = max(dp[i + 1], P[i] + dp[i + T[i]])
 
-print(dp[0])
+print(max(dp))
