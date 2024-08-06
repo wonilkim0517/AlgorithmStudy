@@ -1,24 +1,23 @@
 import sys
-
 input = sys.stdin.readline
 
 N = int(input())
 
-graph = [[0] * N for _ in range(N)]
-for i in range(N):
-    graph[i] = list(map(int, input().split()))
-
-visited = graph
-
-for k in range(N):
-    for i in range(N):
-        for j in range(N):
-            if graph[i][j] == 1 or (graph[i][k] == 1 and graph[k][j] == 1):
-                visited[i][j] = 1
+graph = [[] for _ in range(N)]
 
 for i in range(N):
+    nums = list(map(int, input().split()))
     for j in range(N):
-        if j == (N - 1):
-            print(visited[i][j])
-        else:
-            print(visited[i][j], end=' ')
+        if nums[j] == 1:
+            graph[i].append(j)
+
+def dfs(n):
+    for i in graph[n]:
+        if not visited[i]:
+            visited[i] = 1
+            dfs(i)
+
+for i in range(N):
+    visited = [0] * N
+    dfs(i)
+    print(*visited)
