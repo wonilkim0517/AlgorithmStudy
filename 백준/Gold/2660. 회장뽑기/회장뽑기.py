@@ -18,7 +18,6 @@ while True:
 def bfs(start):
     q = deque()
     q.append(start)
-    visited = [-1] * (N + 1)
     visited[start] = 0
     while q:
         n = q.popleft()
@@ -29,6 +28,8 @@ def bfs(start):
     return max(visited[1:])
 
 for i in range(1, N + 1):
+    visited = [-1] * (N + 1)
+
     answer.append(bfs(i))
 
 min_answer = min(answer)
