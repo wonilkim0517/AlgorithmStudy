@@ -1,7 +1,6 @@
 from collections import deque
 import sys
 
-MAX_NUM = 50
 input = sys.stdin.readline
 
 N = int(input())
@@ -25,12 +24,12 @@ def bfs(start):
             if visited[i] == -1:
                 q.append(i)
                 visited[i] = visited[n] + 1
-    return max(visited[1:])
+    return visited
 
 for i in range(1, N + 1):
     visited = [-1] * (N + 1)
-
-    answer.append(bfs(i))
+    num = bfs(i)
+    answer.append(max(num[1:]))
 
 min_answer = min(answer)
 president_count = answer.count(min_answer)
