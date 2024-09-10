@@ -6,10 +6,10 @@ input = sys.stdin.readline
 n, m = map(int, input().split())
 
 drawingPaper = []
-visited = [[0] * m for _ in range(n)]
 for _ in range(n):
     drawingPaper.append(list(map(int, input().split())))
 
+visited = [[0] * m for _ in range(n)]
 count = 0
 max_area = 0
 
@@ -35,7 +35,7 @@ def bfs(x, y):
 
 for i in range(n):
     for j in range(m):
-        if drawingPaper[i][j] and not visited[i][j]:
+        if not visited[i][j] and drawingPaper[i][j] == 1:
             count += 1
             max_area = max(max_area, bfs(i, j))
 
