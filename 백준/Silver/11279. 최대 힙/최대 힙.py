@@ -3,15 +3,15 @@ import sys
 
 input = sys.stdin.readline
 
-list = []
+heap = []
 N = int(input())
 for _ in range(N):
     x = int(input())
 
     if x > 0:
-        heapq.heappush(list, -x)
+        heapq.heappush(heap, -x)
     else:
-        if len(list) == 0:
+        if not heap:
             print(0)
         else:
-            print(-heapq.heappop(list))
+            print(-heapq.heappop(heap))
