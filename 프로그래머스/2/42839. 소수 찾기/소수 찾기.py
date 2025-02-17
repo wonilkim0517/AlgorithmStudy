@@ -8,21 +8,20 @@ def is_prime(n):
         if n % i == 0:
             return False
     return True
-
+    
 def solution(numbers):
     answer = 0
+    answerList = []
     
     numberSet = set()
-    numbers_int = list(map(int, numbers))
     
-    for i in range(1, len(numbers_int) + 1):
+    for i in range(1, len(numbers) + 1):
         for perm in permutations(numbers, i):
-            num = int("".join(perm))
-            a = set(permutations(numbers_int, i))
-            numberSet.add(num)
-    
-    for k in numberSet:
-        if is_prime(k):
+            a = int(''.join(map(str, perm)))
+            numberSet.add(a)
+            
+    for number in numberSet:
+        if is_prime(number):
             answer += 1
-    
+            
     return answer
